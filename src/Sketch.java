@@ -7,6 +7,7 @@ import processing.core.PApplet;
 public class Sketch extends PApplet {
     public static void main(String[] args) {
         PApplet.main("Sketch");
+
     }
 
     @Override
@@ -25,12 +26,45 @@ public class Sketch extends PApplet {
         stroke(100);
         rect(100, 150, 400, 200);
         
-        fill(255, 153, 51);             // Orange fish
-        noStroke();
-        triangle(320, 250, 350, 230, 350, 270);
-        ellipse(300, 250, 70, 50);
-        fill(0, 0, 0);
-        ellipse(275, 250, 10, 15);
+        int c1 = color(51, 102, 255);       // blue
+        int c2 = color(255, 255, 0);        // yellow
+        int c3 = color(153, 51, 255);       // purple
+        int c4 = color(51, 204, 51);        // green
+        
+        float fish = (int)random(1,4);
+        
+        if (fish == 1){
+            fill(c1);             // Blue fish
+            noStroke();
+            triangle(320, 250, 350, 230, 350, 270);
+            ellipse(300, 250, 70, 50);
+            fill(0, 0, 0);
+            ellipse(275, 250, 10, 15);
+        }
+        else if (fish == 2){
+            fill(c2);             // Yellow fish
+            noStroke();
+            triangle(320, 250, 350, 230, 350, 270);
+            ellipse(300, 250, 70, 50);
+            fill(0, 0, 0);
+            ellipse(275, 250, 10, 15);
+        }
+        else if (fish == 3){
+            fill(c3);             // Purple fish
+            noStroke();
+            triangle(320, 250, 350, 230, 350, 270);
+            ellipse(300, 250, 70, 50);
+            fill(0, 0, 0);
+            ellipse(275, 250, 10, 15);
+        }
+        else if (fish == 4){
+            fill(c4);             // Green fish
+            noStroke();
+            triangle(320, 250, 350, 230, 350, 270);
+            ellipse(300, 250, 70, 50);
+            fill(0, 0, 0);
+            ellipse(275, 250, 10, 15);
+        }
         
     }
 
