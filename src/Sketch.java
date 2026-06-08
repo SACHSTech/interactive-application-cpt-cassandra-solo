@@ -9,10 +9,11 @@ public class Sketch extends PApplet {
     float fishX = 313;
     float fishY = 270;
 
-    int c1 = color(51, 102, 255); 
-    int c2 = color(255, 255, 0);  
-    // float fish = (int)random(1,4);
-    int fish = 2;  // for testing
+    int c1 = color(51, 102, 255);       // blue
+    int c2 = color(255, 255, 0);        // yellow
+ 
+    float fish = (int) random(1,2);
+   // int fish = 2;
 
     public static void main(String[] args) {
         PApplet.main("Sketch");
@@ -25,6 +26,17 @@ public class Sketch extends PApplet {
 
     @Override
     public void setup() {
+        drawTank();
+        if (fish == 1){
+            drawBlueFish();
+        }
+        if (fish == 2){
+            drawYellowFish();
+        }
+        System.out.println(fish);
+    }
+    
+    private void drawTank(){
         background(204, 255, 255);
         fill(204, 102, 0);              // Brown fill, no outline
         noStroke();
@@ -33,91 +45,53 @@ public class Sketch extends PApplet {
         fill(102, 204, 255);              // Blue fill, outline
         stroke(100);
         rect(100, 150, 400, 200);
-        
-        int c1 = color(51, 102, 255);       // blue
-        int c2 = color(255, 255, 0);        // yellow
-        int c3 = color(153, 51, 255);       // purple
-        int c4 = color(51, 204, 51);        // green
-        
-
-        if (fish == 1){
-            fill(c1);             // Blue fish
-            noStroke();
-            triangle(320, 250, 350, 230, 350, 270);
-            ellipse(300, 250, 70, 50);
-            fill(0, 0, 0);
-            ellipse(275, 250, 10, 15);
-            System.out.println("1");
-        }
-        else if (fish == 2){
-            fill(c2);             // Yellow fish
-            noStroke();
-            triangle(320, 250, 350, 230, 350, 270);
-            ellipse(300, 250, 70, 50);
-            fill(0, 0, 0);
-            ellipse(275, 250, 10, 15);
-            System.out.println("2");
-        }
-        else if (fish == 3){
-            fill(c3);             // Purple fish
-            noStroke();
-            triangle(320, 250, 350, 230, 350, 270);
-            ellipse(300, 250, 70, 50);
-            fill(0, 0, 0);
-            ellipse(275, 250, 10, 15);
-            System.out.println("3");
-        }
-        else if (fish == 4){
-            fill(c4);             // Green fish
-            noStroke();
-            triangle(320, 250, 350, 230, 350, 270);
-            ellipse(300, 250, 70, 50);
-            fill(0, 0, 0);
-            ellipse(275, 250, 10, 15);
-            System.out.println("4");
-        }
-        
     }
 
+    private void drawBlueFish(){
+        fill(c1);             // Blue fish
+        noStroke();
+        triangle(320, 250, 350, 230, 350, 270);
+        ellipse(300, 250, 70, 50);
+        fill(0, 0, 0);
+        ellipse(275, 250, 10, 15);
+    }
+
+    private void drawYellowFish(){
+        fill(c2);             // Yellow fish
+        noStroke();
+        ellipse(fishX - 13, fishY - 20, 70, 50);
+        triangle(fishX + 7, fishY - 20, fishX + 37, fishY - 40, fishX + 37, fishY);
+        fill(0, 0, 0);
+        ellipse(fishX - 38, fishY - 20, 10, 15);
+    }
+        
     @Override
     public void draw() {
-       
-        if (fish == 1){
+        drawFishOne();
+        drawFishTwo();
+    }
+    private void drawFishOne(){
+        if (fish == 1.0){
             
             if(mousePressed && mouseX > (fishX - 38) && mouseX < (fishX + 37) && 
                     mouseY > (fishY - 20) && mouseY < (fishY + 20)) {
                         
-                System.out.println("click detected");
-
                 background(0);
+                
+                drawTank();
+                drawBlueFish();
 
-                fill(204, 102, 0);              // Brown fill, no outline
-                noStroke();
-                rect(0, 350, 600, 200);
-        
-                fill(102, 204, 255);              // Blue fill, outline
-                stroke(100);
-                rect(100, 150, 400, 200);
-
-                fill(c1);             // Blue fish
-                noStroke();
-                triangle(320, 250, 350, 230, 350, 270);
-                ellipse(300, 250, 70, 50);
-                fill(0, 0, 0);
-                ellipse(275, 250, 10, 15);
             }
         }
-        else if (fish == 2){
+    }
+        
+    private void drawFishTwo(){
+            if (fish == 2.0){
 
             background(204, 255, 255);
             
-            fill(204, 102, 0);              // Brown fill, no outline
-            noStroke();
-            rect(0, 350, 600, 200);
-        
-            fill(102, 204, 255);              // Blue fill, outline
-            stroke(100);
-            rect(100, 150, 400, 200);
+            drawTank();
+
             if(keyPressed){
                 if (keyCode == UP){
                     fishY--;
@@ -145,14 +119,10 @@ public class Sketch extends PApplet {
                     }
             }
 
-            fill(c2);             // Yellow fish
-            noStroke();
-            ellipse(fishX - 13, fishY - 20, 70, 50);
-            triangle(fishX + 7, fishY - 20, fishX + 37, fishY - 40, fishX + 37, fishY);
-            fill(0, 0, 0);
-            ellipse(fishX - 38, fishY - 20, 10, 15);
+            drawYellowFish();
         }
     }
+    
 
     /** Additional helper methods below */
 
