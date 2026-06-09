@@ -10,12 +10,12 @@ Using a random number generator, a blue or yellow fish will show up. If it is a 
 
 ### How the user interacts with it
 
-![Blue fish](file:///Users/laic71522/Desktop/Screenshot%202026-06-09%20at%201.23.47%20PM.png)
-![Blue fish and black background](file:///Users/laic71522/Desktop/Screenshot%202026-06-09%20at%201.24.06%20PM.png)
+![Blue fish](https://github.com/SACHSTech/interactive-application-cpt-cassandra-solo/blob/main/Blue%20Fish.png)
+![Blue fish and black background](https://github.com/SACHSTech/interactive-application-cpt-cassandra-solo/blob/main/Blue%20Fish%20and%20black%20background.png)
 
 When the fish is blue, the user will use their mouse and click the fish. 
 
-![Yellow fish](file:///Users/laic71522/Desktop/Screenshot%202026-06-09%20at%201.26.34%20PM.png)
-![Yellow fish once arrow key is pressed](file:///Users/laic71522/Desktop/Screenshot%202026-06-09%20at%201.27.48%20PM.png)
+![Yellow fish](https://github.com/SACHSTech/interactive-application-cpt-cassandra-solo/blob/main/Yellow%20Fish.png)
+![Yellow fish once arrow key is pressed](https://github.com/SACHSTech/interactive-application-cpt-cassandra-solo/blob/main/Yellow%20Fish%20swimming.png)
 
 When the fish is yellow, they will use the arrow keys to move the fish within the tank.
