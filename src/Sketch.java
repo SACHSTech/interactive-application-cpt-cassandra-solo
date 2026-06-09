@@ -1,7 +1,7 @@
 import processing.core.PApplet;
 
 /**
- * Template for programs with Processing graphics output.
+ * Give user a task when fish is a specific colour.
  * @author Cassandra Lai
  */
 public class Sketch extends PApplet {
@@ -12,8 +12,14 @@ public class Sketch extends PApplet {
     int c1 = color(51, 102, 255);       // blue
     int c2 = color(255, 255, 0);        // yellow
  
-    float fish = (int) random(1,2);
-   // int fish = 2;
+    float fish = (int) random(1,3);        // random generator
+
+    String[] fishSpeech = {"Click me to turn the background black!",
+                            "Wow, now the background is black!",
+                            "Use the arrow keys to make me swim!",
+                            "Yay, now I'm swimming!"};
+
+    int speechIndex = 0;
 
     public static void main(String[] args) {
         PApplet.main("Sketch");
@@ -33,11 +39,12 @@ public class Sketch extends PApplet {
         if (fish == 2){
             drawYellowFish();
         }
-        System.out.println(fish);
+
+    background(204, 255, 255);
+
     }
     
     private void drawTank(){
-        background(204, 255, 255);
         fill(204, 102, 0);              // Brown fill, no outline
         noStroke();
         rect(0, 350, 600, 200);
@@ -73,24 +80,30 @@ public class Sketch extends PApplet {
     private void drawFishOne(){
         if (fish == 1.0){
             
+            // press a certain area with the mouse to change background to black
             if(mousePressed && mouseX > (fishX - 38) && mouseX < (fishX + 37) && 
                     mouseY > (fishY - 20) && mouseY < (fishY + 20)) {
                         
                 background(0);
                 
-                drawTank();
-                drawBlueFish();
+                speechIndex = 1;
 
             }
+                drawTank();
+                drawBlueFish();
+                fill(0);
+                textSize(20);
+                text(fishSpeech[speechIndex], fishX - 180, fishY - 50);
         }
     }
         
     private void drawFishTwo(){
             if (fish == 2.0){
 
+            // use arrow keys to move fish within the tank
             background(204, 255, 255);
-            
             drawTank();
+            speechIndex = 2;
 
             if(keyPressed){
                 if (keyCode == UP){
@@ -117,8 +130,13 @@ public class Sketch extends PApplet {
                     else if(fishY > 345){
                         fishY = 345;
                     }
+
+                speechIndex = 3;
             }
 
+            fill(0);
+            textSize(20);
+            text(fishSpeech[speechIndex], fishX - 180, fishY - 50);
             drawYellowFish();
         }
     }
