@@ -108,15 +108,19 @@ public class Sketch extends PApplet {
             if(keyPressed){
                 if (keyCode == UP){
                     fishY--;
+                speechIndex = 3;
                 }
                 else if (keyCode == DOWN){
                     fishY++;
+                    speechIndex = 3;
                 }
                 else if (keyCode == LEFT){
                     fishX--;
+                    speechIndex = 3;
                 }
                 else if (keyCode == RIGHT){
                     fishX++;
+                    speechIndex = 3;
                 }
                     if(fishX < 150){
                         fishX = 150;
@@ -131,7 +135,6 @@ public class Sketch extends PApplet {
                         fishY = 345;
                     }
 
-                speechIndex = 3;
             }
 
             fill(0);
